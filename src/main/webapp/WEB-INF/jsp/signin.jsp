@@ -28,7 +28,7 @@
         <form method="post" action="${contextPath}/user/enter/in/system/">
             <%--            <input type="hidden" name="command" value="sign-in"/>--%>
             <div class="form-group">
-                <label for="username">Username:</label>
+                <label for="username">Email:</label>
                 <input type="text" class="form-control w-28" id="username" placeholder="Enter username" name="username"
                        required>
                 <span class="error">${emailError}</span>

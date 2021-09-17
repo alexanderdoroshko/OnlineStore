@@ -25,4 +25,24 @@ public class PageByCategory {
         }
         return countPageArray;
     }
+
+    public int getPreviousPage(int pageNumber) {
+        int previousPage;
+        if (pageNumber == 1) {
+            previousPage = 1;
+        } else {
+            previousPage = pageNumber - 1;
+        }
+        return previousPage;
+    }
+
+    public int getNextPage(int pageNumber, int countPageArraySize) {
+        int nextPage;
+        if (pageNumber == countPageArraySize) {
+            nextPage = pageNumber;
+        } else {
+            nextPage = pageNumber + 1;
+        }
+        return nextPage;
+    }
 }

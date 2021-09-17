@@ -54,8 +54,15 @@ public class CategoryControllerWithPagination {
 
         PageByCategory pageByCategory = new PageByCategory(productService);  // Получение пагинации
         int [] countPageArray = pageByCategory.getArrayPage(categoryId,pageSize);
-
         model.addAttribute("pages",countPageArray);
+
+        int previousPage = pageByCategory.getPreviousPage(pageNumber);
+        model.addAttribute("previous", previousPage);
+
+        int nextPage = pageByCategory.getNextPage(pageNumber, countPageArray.length);
+        model.addAttribute("next", nextPage);
+
+
 
         //Add list to category object
         if (category.isPresent()) {

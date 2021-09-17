@@ -5,10 +5,9 @@
     <title>List Product</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
         function productAddedToShoppingCartMsg() {
             window.confirm("Товар добавлен в корзину!");
@@ -80,8 +79,23 @@
     <button id="cartRedirect" type="submit" class="btn btn-primary">Перейти к корзине</button>
 </a>
 
+<%--<div class="container">--%>
+<%--    <ul class="pagination">--%>
+<%--        <c:if test="${not empty pages}">--%>
+<%--            <c:forEach items="${pages}" var="pages">--%>
+<%--                <li>--%>
+<%--                    <a href="${contextPath}/category/pagination?categoryId=${products.get(0).getCategory().getId()}&pageNumber=${pages}&pageSize=3&sortField=name&sortDirection=ASC">${pages}</a>--%>
+<%--                </li>--%>
+<%--            </c:forEach>--%>
+<%--        </c:if>--%>
+<%--    </ul>--%>
+<%--</div>--%>
+
 <div class="container">
     <ul class="pagination">
+        <li>
+            <a href="${contextPath}/category/pagination?categoryId=${products.get(0).getCategory().getId()}&pageNumber=${previous}&pageSize=3&sortField=name&sortDirection=ASC">Previous</a>
+        </li>
         <c:if test="${not empty pages}">
             <c:forEach items="${pages}" var="pages">
                 <li>
@@ -89,6 +103,9 @@
                 </li>
             </c:forEach>
         </c:if>
+        <li>
+            <a href="${contextPath}/category/pagination?categoryId=${products.get(0).getCategory().getId()}&pageNumber=${next}&pageSize=4&sortField=name&sortDirection=ASC">Next</a>
+        </li>
     </ul>
 </div>
 
